@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # INF4820 - Algorithms for artificial intelligence and natural language processing
 
 #### Course content
@@ -15,3 +16,6 @@ After the successful completion of INF4820
 
 ## Exercise 1:
 
+=======
+#INF4820 
+>>>>>>> 3709403370a51a41d594c1524079bfb9bc3eb9f0
