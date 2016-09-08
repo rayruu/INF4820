@@ -1,0 +1,19 @@
+
+;;; 1. List Processing
+;; From each of the following lists, show
+;; code examples for selecting the element pear:
+
+;; a) '(apple orange pear lemon)
+;; b) '((apple orange) (pear lemon))
+;; c) '((apple) (orange) (pear))
+
+;; a)
+
+(nth 2 '(apple orange pear lemon))
+
+;; b)
+
+(first (second '((apple orange)(pear lemon))))
+
+;; c)
+(nth 0 (nth 2 '((apple) (orange) (pear))))
