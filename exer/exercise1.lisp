@@ -162,14 +162,48 @@
 ;; -------------------------------------------------------------------
 
 ;;;;; 4. Recursion Iteration
-;;(defun foo (foo)
-;;  (if foo
-    ;;  (+ 1 (foo (rest foo)))
-  ;;    0))
 
+;;; a)
+;; Recursive function
+(defun count-member (var n)
+  (if n
+      (if (equal var (first n))
+	  (+ 1 (count-member var (rest n)))
+	  (+ 0 (count-member var (rest n))))
+      0))
+;;;; Test Run:
+;; CL-USER> (count-member 'c '(c a a c a c))
+;; 3
 
-;;(defun count-member (var n)
-;;  (if (eq var (first n))
-;;	  (+ 1 (count-member (var (rest n))))
-;;	     0))
-      
+(defun count-member-bonus (var n)
+  (tail-count 0 0 var n))
+
+;;; Bonus assignment:
+
+(defun tail-count (v l var n)
+  (if (> l (length n))
+	 v
+	 (if (equal var (nth l n))
+	     (tail-count (+ v 1)
+			 (+ l 1)
+			 var
+			 n)
+	     (tail-count v
+			 (+ l 1)
+			 var
+			 n))))
+;;;; Test Run:
+;; CL-USER> (count-member-bonus 'c '(c a a c a c))
+;; 3
+
+;;; b)
+
+(defun non-cursiv-counter (var n)
+  (loop for x in n
+   if (equal x var)
+   collect x into ab
+     finally (return (length ab))))
+     
+;;; Test Run:
+;; CL-USER> (non-cursiv-counter 'c '(c a a c a c))
+;; 3
